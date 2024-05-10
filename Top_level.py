@@ -7,7 +7,9 @@ Date: 10.5.2024
 
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtCore import QThread, QTimer
+from PyQt5.QtCore import QThread
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 import sys
 import requests
 import main_file
@@ -17,6 +19,7 @@ from gui_template import Ui_MainWindow
 class FIRST_TEST(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super(FIRST_TEST, self).__init__(parent)
+        self.url = 'https://meteo.arso.gov.si/uploads/probase/www/observ/surface/text/en/observation_si/index.html'
         # izdelamo glavno okno
         self.ui = Ui_MainWindow()
         # naložimo UI
@@ -24,34 +27,44 @@ class FIRST_TEST(QtWidgets.QMainWindow):
         # kličemo funkcijo za logične povezave v GUI
         self.setup_ui_logic()
         # odpremo okno v največji možni velikosti
-        #self.showMaximized()
-
+        # self.showMaximized()
+        # show data on start
+        self.showdata()
     def setup_ui_logic(self):
-        ###???
-        """Naredimo povezave z gumbi"""
-        # Definiramo instance za vsako okno z nastavitvami posebej
-        #self.gpd = gpd3303s.GPD3303S()
-
-
-
+        # Definiramo instance
+        urls = self.urlsetup()
         # Definiramo glavno funkcijo
-        self.main_func = main_file.Multi_test_main_func(self.ui)
+        self.main_func = main_file.Multi_test_main_func(self.ui, urls)
 
+        # ------------ Povezava gumbov z UI---------------------------------#
+        # City Select
+        self.ui.citiesComboBox.currentIndexChanged.connect(self.showdata)
+        # Data Refresh
+        self.ui.refreshButton.clicked.connect(self.refreshdata)
         # ----------------------------------------------------------------------------#
-        ###Povezava gumbov za test z UI
 
-        # Vnos/Izbris podatkov za avtomatsko vnašanje parametrov
-        self.ui.refreshButton.clicked.connect(self.refreshData)
+    def urlsetup(self):
+        page = urlopen(self.url)
+        html = page.read().decode("utf-8")
+        soup = BeautifulSoup(html, "html.parser")
+        url_list = []
+        for i in soup.find_all('a', href=True):
+            if i['href'][-12:] == "history.html":
+                url_list.append(i['href'])
 
-        # ----------------------------------------------------------------------------#
+        return url_list
+
 
 
     ###########################################################################################################
     # COM-PORT povezave
-    ###???
-    def refreshData(self):
+    def showdata(self):
         """Poveže/Odklopi GW_Instek"""
-        self.main_func.refreshData(self.ui)
+        self.main_func.showdata()
+
+    def refreshdata(self):
+        """Poveže/Odklopi GW_Instek"""
+        self.main_func.refreshdata()
 
 
 
