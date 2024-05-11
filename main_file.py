@@ -4,30 +4,33 @@ Author: Nejc Ropič
 Python version: 3.9
 Date: 10.5.2024
 """
-
 from PyQt5.QtWidgets import QTableWidgetItem, QLabel
 from PyQt5.QtGui import QPixmap
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-class Multi_test_main_func():
-    def __init__(self, ui, urls):
+
+class MainFileDataProcess:
+    def __init__(self, ui, urls, domain):
         """Naredimo potrebne značke"""
-        # spremenljivke in funkcije iz Top_level
+        # instances from Top_level
         self.ui = ui
         self.urls = urls
+        self.domain = domain
 
         # dictionary for data
         self.database = []
 
         # lists for usage
         self.url_list = []
+        self.date_list = []
         self.temperature_list = []
         self.wind_icon_list = []
         self.wind_speed_list = []
         self.pressure_list = []
 
     def selectcity(self):
+        """Funcion for city selection from combobox"""
         index = self.ui.citiesComboBox.currentIndex()
         citylink = "https://meteo.arso.gov.si" + self.urls[index]
         page = urlopen(citylink)
@@ -36,12 +39,21 @@ class Multi_test_main_func():
         return citydata
 
     def refreshdata(self):
-        """Funkcija, ki poveže GUI z GW_instek"""
+        """Function for data refresh"""
         self.getdata()
 
     def getdata(self):
+        """"Function for extracting data from website"""
         self.database = []
         city = self.selectcity()
+
+        # display city name in header
+        self.ui.cityesTable.horizontalHeaderItem(0).setText(city.find('th', {"class": "meteoSI-header"}).get_text())
+
+        # get date
+        for i in city.find_all('td', {"class": "meteoSI-th"}):
+            self.date_list.append(i.get_text())
+
         # get temperatures
         for i in city.find_all('td', {"class": "t"}):
             self.temperature_list.append(i.get_text())
@@ -52,24 +64,44 @@ class Multi_test_main_func():
 
         # get pressure
         for i in city.find_all('td', {"class": "msl"}):
-            self.pressure_list.append(i.get_text())
+            text = i.get_text()
 
+            # text can return "*\n\t\t" before number
+            try:
+                text = int(text)
+            except ValueError:
+                todelete = list(text)
+                del todelete[:4]
+                text = ''.join(todelete)
+
+            if text == "":
+                text = "nA"
+
+            self.pressure_list.append(str(text))
+
+        # store each row of data in dictionary
         for i in range(len(self.wind_speed_list)):
-            local_database =  {"temperature": self.temperature_list[i],
-                       "wind_speed": self.wind_speed_list[i],
-                       "pressure": self.pressure_list[i]}
+            local_database =  {
+                "date": self.date_list[i],
+                "temperature": self.temperature_list[i],
+                "wind_speed": self.wind_speed_list[i],
+                "pressure": self.pressure_list[i]}
+            # store individual dict(row) in table
             self.database.append(local_database)
-
+        # clear table data
+        self.date_list = []
         self.temperature_list = []
         self.wind_speed_list = []
         self.pressure_list = []
 
     def showdata(self):
+        """Show data when element in QComboBox is selected"""
         self.getdata()
         data = self.database
         row = 0
         self.ui.cityesTable.setRowCount(len(data))
         for onedata in data:
+            self.ui.cityesTable.setItem(row, 0, QTableWidgetItem(onedata["date"]))
             self.ui.cityesTable.setItem(row, 1, QTableWidgetItem(onedata["temperature"]))
             self.ui.cityesTable.setItem(row, 2, QTableWidgetItem(onedata["wind_speed"]))
             self.ui.cityesTable.setItem(row, 3, QTableWidgetItem(onedata["pressure"]))
