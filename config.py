@@ -5,6 +5,9 @@ Python version: 3.9
 Date: 10.5.2024
 """
 
+# Choose which GUI is implemented:
+# "pyqt" for PyQt5 or "tkinter" for Tkinter
+GUI = "tkinter"
 # Service URL
 SERVICE_URL = 'https://meteo.arso.gov.si/met/en/service2/'
 # Main URL
@@ -20,3 +23,6 @@ def get_main_url():
 
 def get_domain():
     return DOMAIN_URL
+
+def get_gui():
+    return GUI

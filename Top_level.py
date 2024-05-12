@@ -8,7 +8,6 @@ import tkinter as tk
 from pyqt_gui import Ui_MainWindow
 from tkinter_gui import TkinterMain
 
-
 class PyQt5Gui:
     def __init__(self, url, domain):
         # make instance for main window
@@ -213,7 +212,9 @@ if __name__ == "__main__":
     # dependencies
     main_url = config.get_main_url()
     main_domain = config.get_domain()
-    # Choose the GUI library here, PyQt5Gui() for PyQt5 or TkinterGui() for Tkinter
-    gui = PyQt5Gui(main_url, main_domain)  # Change this to TkinterGui() to switch the GUI framework
+    if config.get_gui() == "pyqt":
+        gui = PyQt5Gui(main_url, main_domain)
+    elif config.get_gui() == "tkinter":
+        gui = TkinterGui(main_url, main_domain)
     app = Application(gui)
     app.run()
