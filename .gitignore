@@ -1,0 +1,23 @@
+# Bytecode files
+*.pyc
+
+# Caching directories
+__pycache__/
+
+# Virtual environments
+venv/
+.env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Operating system generated files
+.DS_Store
+
+# PyQt5 UI generated files
+*.ui
+
+# Specific test files
+testGUI.py
+testing.py

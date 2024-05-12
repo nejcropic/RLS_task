@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui_template.ui'
+# Form implementation generated from reading ui file 'pyqt_gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -14,21 +14,42 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1200, 879)
+        MainWindow.resize(1200, 900)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(1200, 0))
+        MainWindow.setMinimumSize(QtCore.QSize(1200, 900))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.refreshButton = QtWidgets.QPushButton(self.centralwidget)
-        self.refreshButton.setGeometry(QtCore.QRect(690, 30, 171, 31))
+        self.refreshButton.setGeometry(QtCore.QRect(700, 60, 171, 31))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.refreshButton.setFont(font)
+        self.refreshButton.setStyleSheet("QPushButton {\n"
+"    border-radius: 5px;\n"
+"    background: #C0C0C0;\n"
+"    color: #000;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"    background: #FFF;\n"
+"    color: #000;\n"
+"    border-color:  #C0C0C0;\n"
+"    border-width: 1.2px;\n"
+"    border-style:inset;\n"
+"}")
         self.refreshButton.setObjectName("refreshButton")
         self.cityesTable = QtWidgets.QTableWidget(self.centralwidget)
-        self.cityesTable.setGeometry(QtCore.QRect(160, 90, 901, 741))
+        self.cityesTable.setGeometry(QtCore.QRect(150, 110, 901, 741))
         self.cityesTable.setMinimumSize(QtCore.QSize(800, 0))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.cityesTable.setFont(font)
         self.cityesTable.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.cityesTable.setShowGrid(True)
         self.cityesTable.setObjectName("cityesTable")
@@ -43,8 +64,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.cityesTable.setHorizontalHeaderItem(3, item)
         self.citiesComboBox = QtWidgets.QComboBox(self.centralwidget)
-        self.citiesComboBox.setGeometry(QtCore.QRect(360, 30, 201, 31))
+        self.citiesComboBox.setGeometry(QtCore.QRect(310, 60, 201, 31))
+        self.citiesComboBox.setStyleSheet("QComboBox {\n"
+"    border-radius: 5px;\n"
+"    background: #C0C0C0;\n"
+"    color: #000;\n"
+"}")
         self.citiesComboBox.setObjectName("citiesComboBox")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(390, 20, 441, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 21))
@@ -60,7 +95,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.refreshButton.setText(_translate("MainWindow", "Refresh"))
+        self.refreshButton.setText(_translate("MainWindow", "REFRESH"))
         item = self.cityesTable.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "MESTO"))
         item = self.cityesTable.horizontalHeaderItem(1)
@@ -69,3 +104,4 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Wind speed [km/h]"))
         item = self.cityesTable.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Pressure [HPa]"))
+        self.label.setText(_translate("MainWindow", "ARSO meteo: Current weather reports"))

@@ -10,8 +10,7 @@ from bs4 import BeautifulSoup
 
 
 class ManageUrl:
-    def __init__(self, ui, url):
-        self.ui = ui
+    def __init__(self, url):
         self.url = url
 
     def listcities(self):
@@ -20,12 +19,13 @@ class ManageUrl:
         html = page.read().decode("utf-8")
         soup = BeautifulSoup(html, "html.parser")
         rows = soup.find_all('tr')
-
+        cities = []
         for row in rows:
-            cols = row.find('td')
-            if cols is None:
+            col = row.find('td')
+            if col is None:
                 continue
-            self.ui.citiesComboBox.addItem(cols.get_text())
+            cities.append(col.get_text())
+        return cities
 
     def urlsetup(self):
         """Function to get all cities available"""

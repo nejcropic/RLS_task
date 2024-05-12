@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67d0f7a9-eaf2-4df6-8f7f-3ed047017cff" name="Changes" comment="fetch data on GUI">
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage_url.py" afterDir="false" />
+    <list default="true" id="67d0f7a9-eaf2-4df6-8f7f-3ed047017cff" name="Changes" comment="completed gui for pyqt5, config file added">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/testGUI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tkinter_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Top_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/Top_level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyqt_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage_url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +68,7 @@
     "Python.main_file.executor": "Run",
     "Python.testGUI.executor": "Run",
     "Python.testing.executor": "Run",
+    "Python.tkinter_gui.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/aNejc/MAHLE/HV_app_python_scripts/threads.py",
@@ -168,14 +171,22 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1715379458877</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="completed gui for pyqt5, config file added">
+      <option name="closed" value="true" />
+      <created>1715437937517</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1715437937517</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value=".py file added" />
     <MESSAGE value="fetch data on GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="fetch data on GUI" />
+    <MESSAGE value="completed gui for pyqt5, config file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed gui for pyqt5, config file added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

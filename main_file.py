@@ -29,26 +29,19 @@ class MainFileDataProcess:
         self.wind_speed_list = []
         self.pressure_list = []
 
-    def selectcity(self):
+    def selectcity(self, index):
         """Funcion for city selection from combobox"""
-        index = self.ui.citiesComboBox.currentIndex()
-        citylink = "https://meteo.arso.gov.si" + self.urls[index]
+        # selecting city
+        citylink = self.domain + self.urls[index]
         page = urlopen(citylink)
         html = page.read().decode("utf-8")
         citydata = BeautifulSoup(html, "html.parser")
         return citydata
 
-    def refreshdata(self):
-        """Function for data refresh"""
-        self.getdata()
-
-    def getdata(self):
+    def getdata(self, index):
         """"Function for extracting data from website"""
         self.database = []
-        city = self.selectcity()
-
-        # display city name in header
-        self.ui.cityesTable.horizontalHeaderItem(0).setText(city.find('th', {"class": "meteoSI-header"}).get_text())
+        city = self.selectcity(index)
 
         # get date
         for i in city.find_all('td', {"class": "meteoSI-th"}):
@@ -88,23 +81,12 @@ class MainFileDataProcess:
                 "pressure": self.pressure_list[i]}
             # store individual dict(row) in table
             self.database.append(local_database)
+
         # clear table data
         self.date_list = []
         self.temperature_list = []
         self.wind_speed_list = []
         self.pressure_list = []
 
-    def showdata(self):
-        """Show data when element in QComboBox is selected"""
-        self.getdata()
-        data = self.database
-        row = 0
-        self.ui.cityesTable.setRowCount(len(data))
-        for onedata in data:
-            self.ui.cityesTable.setItem(row, 0, QTableWidgetItem(onedata["date"]))
-            self.ui.cityesTable.setItem(row, 1, QTableWidgetItem(onedata["temperature"]))
-            self.ui.cityesTable.setItem(row, 2, QTableWidgetItem(onedata["wind_speed"]))
-            self.ui.cityesTable.setItem(row, 3, QTableWidgetItem(onedata["pressure"]))
-            row = row + 1
-
+        return self.database
 
