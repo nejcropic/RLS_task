@@ -9,18 +9,7 @@ from pyqt_gui import Ui_MainWindow
 from tkinter_gui import TkinterMain
 
 
-class GuiInterface:
-    def create_main_window(self):
-        raise NotImplementedError
-
-    def set_title(self, title):
-        raise NotImplementedError
-
-    def start(self):
-        raise NotImplementedError
-
-
-class PyQt5Gui(GuiInterface):
+class PyQt5Gui:
     def __init__(self, url, domain):
         # make instance for main window
         self.url = url
@@ -80,10 +69,10 @@ class PyQt5Gui(GuiInterface):
         for i in data:
             self.ui.cityesTable.setItem(row, 0, QTableWidgetItem(i["date"]))
             self.ui.cityesTable.setItem(row, 1, QTableWidgetItem(i["temperature"]))
-            self.ui.cityesTable.setItem(row, 2, QTableWidgetItem(i["wind_speed"]))
-            self.ui.cityesTable.setItem(row, 3, QTableWidgetItem(i["pressure"]))
+            self.ui.cityesTable.setItem(row, 2, QTableWidgetItem(i["wind_direction"]))
+            self.ui.cityesTable.setItem(row, 3, QTableWidgetItem(i["wind_speed"]))
+            self.ui.cityesTable.setItem(row, 4, QTableWidgetItem(i["pressure"]))
             row = row + 1
-
 
     # functions for displaying gui
     def create_main_window(self):
@@ -98,7 +87,7 @@ class PyQt5Gui(GuiInterface):
 
 
 # TkinterGUI
-class TkinterGui(GuiInterface):
+class TkinterGui:
     def __init__(self, url, domain):
         # make instance for main window
         self.url = url
@@ -130,23 +119,28 @@ class TkinterGui(GuiInterface):
         for i, item in enumerate(data, start=4):
             # date
             label_date = tk.Label(self.ui.contentFrame, text=item['date'],
-                                  width=30, fg='black', font=('Arial', 10))
+                                  width=30, borderwidth=2, relief="groove", fg='black', font=('Arial', 10))
             label_date.grid(row=i, column=0)
             self.table_widgets.append(label_date)
             # temperature
             label_temp = tk.Label(self.ui.contentFrame, text=item['temperature'],
-                                  width=15, fg='black', font=('Arial', 10))
+                                  width=15, borderwidth=2, relief="groove", fg='black', font=('Arial', 10))
             label_temp.grid(row=i, column=1)
             self.table_widgets.append(label_temp)
+            # wind direction
+            label_wind_direction = tk.Label(self.ui.contentFrame, text=item['wind_direction'],
+                                  width=20, borderwidth=2, relief="groove", fg='black', font=('Arial', 10))
+            label_wind_direction.grid(row=i, column=2)
+            self.table_widgets.append(label_wind_direction)
             # wind speed
-            label_wind = tk.Label(self.ui.contentFrame, text=item['wind_speed'],
-                                  width=20, fg='black', font=('Arial', 10))
-            label_wind.grid(row=i, column=2)
-            self.table_widgets.append(label_wind)
+            label_wind_speed = tk.Label(self.ui.contentFrame, text=item['wind_speed'],
+                                  width=20, borderwidth=2, relief="groove", fg='black', font=('Arial', 10))
+            label_wind_speed.grid(row=i, column=3)
+            self.table_widgets.append(label_wind_speed)
             # pressure
             label_pressure = tk.Label(self.ui.contentFrame, text=item['pressure'],
-                                   width=20, fg='black', font=('Arial', 10))
-            label_pressure.grid(row=i, column=3)
+                                   width=20, borderwidth=2, relief="groove", fg='black', font=('Arial', 10))
+            label_pressure.grid(row=i, column=4)
             self.table_widgets.append(label_pressure)
 
     def updatecombobox(self):
@@ -178,18 +172,18 @@ class TkinterGui(GuiInterface):
         # get headers in table
         for i in trow:
             row_table.append(i.get_text())
-        headers = [row_table[1], row_table[3], row_table[5], row_table[7]]
+        headers = [row_table[1], row_table[4], row_table[5], row_table[6], row_table[8]]
         # apply headers in tkinter label
         for column, header in enumerate(headers):
             if column == 0:
                 label = tk.Label(self.ui.contentFrame, text=header, width=30,
-                                 font=('Arial', 16, 'bold'), fg='black')
-            elif column == 1:
+                                 font=('Arial', 16, 'bold'), borderwidth=2, relief="solid", fg='black')
+            elif column == (1 or 2 or  3):
                 label = tk.Label(self.ui.contentFrame, text=header, width=15,
-                                 font=('Arial', 16, 'bold'), fg='black')
+                                 font=('Arial', 16, 'bold'), borderwidth=2, relief="solid", fg='black')
             else:
                 label = tk.Label(self.ui.contentFrame, text=header, width=20,
-                                 font=('Arial', 16, 'bold'), fg='black')
+                                 font=('Arial', 16, 'bold'), borderwidth=2, relief="solid", fg='black')
             label.grid(row=3, column=column)
 
     def refreshdata(self):
@@ -220,6 +214,6 @@ if __name__ == "__main__":
     main_url = config.get_main_url()
     main_domain = config.get_domain()
     # Choose the GUI library here, PyQt5Gui() for PyQt5 or TkinterGui() for Tkinter
-    gui = TkinterGui(main_url, main_domain)  # Change this to TkinterGui() to switch the GUI framework
+    gui = PyQt5Gui(main_url, main_domain)  # Change this to TkinterGui() to switch the GUI framework
     app = Application(gui)
     app.run()

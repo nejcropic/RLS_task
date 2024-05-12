@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67d0f7a9-eaf2-4df6-8f7f-3ed047017cff" name="Changes" comment="completed gui for pyqt5, config file added">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="67d0f7a9-eaf2-4df6-8f7f-3ed047017cff" name="Changes" comment="completed gui for tkinter, readme and .gitignore file added">
       <change afterPath="$PROJECT_DIR$/testGUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tkinter_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Top_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/Top_level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyqt_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage_url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tkinter_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/tkinter_gui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/aNejc/MAHLE/HV_app_python_scripts/threads.py",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RunManager">
@@ -178,7 +176,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1715437937517</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="completed gui for tkinter, readme and .gitignore file added">
+      <option name="closed" value="true" />
+      <created>1715518776958</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1715518776958</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -186,7 +191,8 @@
     <MESSAGE value=".py file added" />
     <MESSAGE value="fetch data on GUI" />
     <MESSAGE value="completed gui for pyqt5, config file added" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed gui for pyqt5, config file added" />
+    <MESSAGE value="completed gui for tkinter, readme and .gitignore file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed gui for tkinter, readme and .gitignore file added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

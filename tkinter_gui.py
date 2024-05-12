@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Author: Nejc Ropič
+Python version: 3.9
+Date: 10.5.2024
+"""
+
 from tkinter import *
 from tkinter.ttk import *
 import manage_url
@@ -10,7 +17,7 @@ class TkinterMain:
         self.domain = domain
 
     def setupUi(self):
-        self.root.geometry('1200x900')
+        self.root.geometry('1400x900')
         self.manage_url = manage_url.ManageUrl(self.url)
 
         # styles for elements
@@ -52,15 +59,12 @@ class TkinterMain:
         self.canvas.grid(row=0, column=0, sticky="nsew")
         self.scrollbar.grid(row=0, column=1, sticky="ns")
 
-
     # functions for gui elements
     def createcombobox(self):
         cities = self.manage_url.listcities()
         self.comboBox.configure(values=cities)
         self.comboBox.grid(column=1, row=1, pady=25)
         self.comboBox.current(1)
-
-
 
     def updatescrollregion(self):
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
