@@ -18,6 +18,7 @@ Program structure:
 - manage_url.py - File to get important data from website before generating GUI
 - config.py - File where you can change main link provided to Top_level.py
 - pyqt_gui.py, tkinter_gui.py - GUI structure libraries files
+- setup.py - File to download all dependancies, if they are not previously installed by user
 - if wanted, change GUI library in:
   - pyqt_gui.py for PyQt5 Library
   - tkinter_gui.py for Tkinter Library
