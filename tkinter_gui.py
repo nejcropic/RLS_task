@@ -67,4 +67,5 @@ class TkinterMain:
         self.comboBox.current(1)
 
     def updatescrollregion(self):
+        """ Function for updating scroll region everytime content is changed """
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))

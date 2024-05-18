@@ -16,14 +16,9 @@ Program structure:
 - manage_url.py - File to get important data from website before generating GUI
 - config.py - File where you can change main link provided to Top_level.py
 - pyqt_gui.py, tkinter_gui.py - GUI structure libraries files
-
-Testing program:
-- In the end of the Top_level.py file, 
-  you can choose between the GUI libraries by changing function, 
-  if you are more familiar with one than another
-- If wanted, change GUI library in:
+- if wanted, change GUI library in:
   - pyqt_gui.py for PyQt5 Library
   - tkinter_gui.py for Tkinter Library
-  - pyside_gui.py for PySide Library (to be created...)
-- At top of main_file.py, change logging level to 
-  DEBUG instead of ERROR to track errors
+
+Testing program:
+- In config.py file: choose GUI library, logging level for tracking errors and link
