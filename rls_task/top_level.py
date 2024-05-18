@@ -208,13 +208,21 @@ class Application:
         self.gui.start()
 
 
-if __name__ == "__main__":
-    # dependencies
+def main():
     main_url = config.get_main_url()
     main_domain = config.get_domain()
-    if config.get_gui() == "pyqt":
+    gui_type = config.get_gui()
+
+    if gui_type == "pyqt":
         gui = PyQt5Gui(main_url, main_domain)
-    elif config.get_gui() == "tkinter":
+    elif gui_type == "tkinter":
         gui = TkinterGui(main_url, main_domain)
+    else:
+        raise ValueError("Unsupported GUI type specified")
+
     app = Application(gui)
     app.run()
+
+
+if __name__ == "__main__":
+    main()
