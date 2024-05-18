@@ -1,12 +1,12 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QTableWidgetItem
 import sys
-import config
-import main_file
-import manage_url
+from . import config
+from . import main_file
+from . import manage_url
 import tkinter as tk
-from pyqt_gui import Ui_MainWindow
-from tkinter_gui import TkinterMain
+from .pyqt_gui import Ui_MainWindow
+from .tkinter_gui import TkinterMain
 
 class PyQt5Gui:
     def __init__(self, url, domain):

@@ -7,7 +7,7 @@ Date: 10.5.2024
 
 from tkinter import *
 from tkinter.ttk import *
-import manage_url
+from . import manage_url
 
 
 class TkinterMain:
