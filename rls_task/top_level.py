@@ -109,6 +109,7 @@ class TkinterGui:
         self.onmousewheel()
 
     def updatetable(self, index):
+        """Update table every time city is selected"""
         data = self.main_func.getdata(index)
         # delete previous data
         for widget in self.table_widgets:
@@ -143,6 +144,7 @@ class TkinterGui:
             self.table_widgets.append(label_pressure)
 
     def updatecombobox(self):
+        """Update combo box every time city is selected"""
         cities = self.manage_url.listcities()
 
         # the function to get triggered each time you choose something
@@ -157,6 +159,7 @@ class TkinterGui:
         self.ui.comboBox.bind('<<ComboboxSelected>>', select)
 
     def onmousewheel(self):
+        """Connect GUI with mousewheel events"""
         # mousewheel events
         def _on_mousewheel(event):
             self.ui.canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
@@ -164,6 +167,7 @@ class TkinterGui:
         self.ui.canvas.bind_all("<MouseWheel>", _on_mousewheel)
 
     def createtable(self):
+        """Create table on first start"""
         citydata = self.main_func.selectcity(self.index)
         thead = citydata.find('thead')
         trow = thead.find('tr')
@@ -186,6 +190,7 @@ class TkinterGui:
             label.grid(row=3, column=column)
 
     def refreshdata(self):
+        """Refresh data on Refresh button pressing"""
         self.main_func.getdata(self.index)
 
     def create_main_window(self):

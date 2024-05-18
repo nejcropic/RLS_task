@@ -3,10 +3,12 @@ and displays the environment  data  from:
 https://meteo.arso.gov.si/met/en/service2/.
 
 Running program:
-- Run file in Top_level.py
-- Data for all cities will be listed in table
-- Select city in ComboBox to display data from last 48 hours
-- Refresh data by pressing on "Refresh button"
+- Run following commands in terminal in following order to run program and install all dependencies:
+  - python -m venv venv (if you dont have virtual environment previously installed)
+  - venv\Scripts\activate
+  - pip install git+https://github.com/nejcropic/RLS_task.git
+  - (if you already installed program but code is changed later, run this command) pip install --upgrade --force-reinstall git+https://github.com/nejcropic/RLS_task.git
+  - rls_task
 
 Program structure: 
 - Top_level.py - Main file for connecting all GUI libraries and data processing files. Includes:
