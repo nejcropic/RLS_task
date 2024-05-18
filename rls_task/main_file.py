@@ -143,7 +143,7 @@ class MainFileDataProcess:
                 # store data as nan value of numpy instead of empty value ""
             if text == "":
                 text = np.nan
-                item = str(text)
+            item = str(text)
             self.pressure_list.append(str(item))
         # display all errors in .log file
         if error_num > 0:
