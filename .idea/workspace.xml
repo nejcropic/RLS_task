@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67d0f7a9-eaf2-4df6-8f7f-3ed047017cff" name="Changes" comment="README and config.py update">
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    <list default="true" id="67d0f7a9-eaf2-4df6-8f7f-3ed047017cff" name="Changes" comment="finished for testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyqt_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyqt_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tkinter_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/tkinter_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Top_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/top_level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +70,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Top_level" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="top_level" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RLS_task" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,7 +83,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Top_level.py" />
+      <option name="SCRIPT_NAME" value="D:\aNejc\Programiranje\RLS_task\top_level.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -98,7 +94,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Top_level" />
+        <item itemvalue="Python.top_level" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +177,14 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1715545661344</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="finished for testing">
+      <option name="closed" value="true" />
+      <created>1716049415307</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1716049415307</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,7 +195,8 @@
     <MESSAGE value="completed gui for tkinter, readme and .gitignore file added" />
     <MESSAGE value="added error tracking with logging" />
     <MESSAGE value="README and config.py update" />
-    <option name="LAST_COMMIT_MESSAGE" value="README and config.py update" />
+    <MESSAGE value="finished for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished for testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

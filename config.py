@@ -7,7 +7,7 @@ Date: 10.5.2024
 
 # Choose which GUI is implemented:
 # "pyqt" for PyQt5 or "tkinter" for Tkinter
-GUI = "pyqt5"
+GUI = "pyqt"
 # Choose logging level: debug, warning, info, error, critical
 LEVEL = "error"
 

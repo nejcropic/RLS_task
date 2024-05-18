@@ -20,7 +20,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'rls_task = Top_level:main',  # Adjust the import path and function
+            'rls_task = top_level:main',  # Adjust the import path and function
         ],
     },
     classifiers=[
