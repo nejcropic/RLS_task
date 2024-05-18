@@ -128,7 +128,6 @@ class MainFileDataProcess:
             text = i.get_text()
             try:
                 text = int(text)
-                item = str(text)
             # text can return "*\n\t\t" before number e.g.:"*\n\t\t789"
             except (ValueError, TypeError) as e:
                 todelete = list(text)
